@@ -28,7 +28,14 @@ const Header: React.FC = () => {
   const [isSearchBarOpen, setIsSearchBarOpen] = useState(false);
 
   return (
-    <Flex width="100%" background="header" alignItems="center" padding="2">
+    <Flex
+      width="100%"
+      background="header"
+      alignItems="center"
+      padding="2"
+      position="relative"
+      boxShadow="0px 0px 6px 0px rgba(0,0,0,0.75)"
+    >
       {isSearchBarOpen ? (
         <SearchBar />
       ) : (
@@ -46,7 +53,7 @@ const Header: React.FC = () => {
             </DrawerContent>
           </DrawerRoot>
           <Spacer />
-          <HStack width={{ base: "auto", lg: "60%" }}>
+          <HStack>
             <IconButton
               variant="header"
               size="header"
@@ -92,8 +99,11 @@ const SearchBar: React.FC<BoxProps> = ({ display }) => {
     <InputGroup
       startElement={<LuSearch />}
       endElement={<LuX />}
-      width="100%"
+      width="50%"
       display={display}
+      position="absolute"
+      left="50%"
+      transform="translateX(-50%)"
     >
       <Input placeholder="Suche nach einem Thema" variant="inverse" />
     </InputGroup>

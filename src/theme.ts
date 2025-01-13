@@ -5,18 +5,23 @@ const system = createSystem(defaultConfig, {
     tokens: {
       colors: {
         primary: { value: "#4A90E2" },
+        "primary-active": { value: "#3869a1" },
         secondary: { value: "#95A5A6" },
         background: { value: "#F4F4F4" },
         accent: { value: "#50E3C2" },
         border: { value: "#4A90E2" },
         "text-primary": { value: "#2C3E50" },
         "text-secondary": { value: "#7F8C8D" },
+        "text-inverse": { value: "#F4F4F4" },
         "icon-inverse": { value: "#F4F4F4" },
         header: { value: "#2C75A6" },
       },
     },
     recipes: {
       button: {
+        base: {
+          borderRadius: "0px",
+        },
         variants: {
           size: {
             header: {
@@ -32,6 +37,31 @@ const system = createSystem(defaultConfig, {
             },
           },
           variant: {
+            primary: {
+              background: "primary",
+              color: "text-inverse",
+              _active: { background: "primary-active" },
+              _focus: { background: "primary-active" },
+              _hover: { background: "primary-active" },
+            },
+            secondary: {
+              border: "2px solid",
+              borderColor: "primary",
+              background: "background",
+              color: "primary",
+              _active: {
+                borderColor: "primary-active",
+                color: "primary-active",
+              },
+              _focus: {
+                borderColor: "primary-active",
+                color: "primary-active",
+              },
+              _hover: {
+                borderColor: "primary-active",
+                color: "primary-active",
+              },
+            },
             header: {
               color: "icon-inverse",
               _hover: {
